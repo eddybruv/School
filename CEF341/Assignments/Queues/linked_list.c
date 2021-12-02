@@ -45,7 +45,7 @@ int main(void){
                 sizeOfQueue(head);
                 break;
             case 5:
-                topOfQueue(tracker);
+                topOfQueue(head);
                 break;
             case 6:
                 printf("Quiting...\n");
