@@ -16,7 +16,8 @@ void enqueue(struct node **);
 void dequeue(struct node **);
 void display(struct node *);
 void sizeOfQueue(struct node *);
-void topOfQueue (struct node *);
+void headOfQueue (struct node *);
+void endOfQueue(struct node *tail);
 
 int main(void){
     int command;
@@ -45,9 +46,11 @@ int main(void){
                 sizeOfQueue(head);
                 break;
             case 5:
-                topOfQueue(head);
+                headOfQueue(head);
                 break;
             case 6:
+                tailOfQueue(tracker);
+            case 7:
                 printf("Quiting...\n");
                 return 0;
             default:
@@ -107,6 +110,10 @@ void sizeOfQueue(struct node *list){
     printf("Number of elements in queue: %d\n", count);
 }
 
-void topOfQueue(struct node *head){
+void headOfQueue(struct node *head){
     printf("Element at top of queue: %d\n", head->value);
+}
+
+void endOfQueue(struct node *tail){
+    printf("Element at end of queue: %d", tail->value);
 }
