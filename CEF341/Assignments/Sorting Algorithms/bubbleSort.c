@@ -1,5 +1,5 @@
 /**
- * @brief: implementing selection sort on an unsorted array
+ * @brief: implementing bubble sort on an unsorted array
  * @date: 2-31-2021
  * @author: EDWIN BIMELA AJONG
  */
