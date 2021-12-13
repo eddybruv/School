@@ -1,7 +1,7 @@
 /**
  * @brief:dichotonomous /binary search algorithm
- * @author:
- * @date:
+ * @author: EDWIN BIMELA AJONG
+ * @date: 04-12-2021
  */
 
 #include <stdio.h>
