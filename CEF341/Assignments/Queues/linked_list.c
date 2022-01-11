@@ -49,7 +49,8 @@ int main(void){
                 headOfQueue(head);
                 break;
             case 6:
-                tailOfQueue(tracker);
+                endOfQueue(tracker);
+                break;
             case 7:
                 printf("Quiting...\n");
                 return 0;
@@ -87,6 +88,10 @@ void enqueue(struct node **list){
 
 void dequeue(struct node **head){
     struct node *temp;
+    if(*head == NULL){
+        printf("List is empty.\n");
+        return;
+    }
     temp = *head;
     *head = (*head)->next;
     free(temp);
@@ -94,6 +99,10 @@ void dequeue(struct node **head){
 
 void display(struct node *list){
     printf("Queue: ");
+    if(list == NULL){
+        printf("List is empty.\n");
+        return;
+    }
     while (list->next != NULL){
         printf("%d->", list->value);
         list = list->next;
@@ -103,6 +112,10 @@ void display(struct node *list){
 
 void sizeOfQueue(struct node *list){
     int count = 0;
+    if(list == NULL){
+        printf("List is empty.\n");
+        return;
+    }
     while(list != NULL){
         count++;
         list = list->next;
@@ -111,9 +124,17 @@ void sizeOfQueue(struct node *list){
 }
 
 void headOfQueue(struct node *head){
+    if(head == NULL){
+        printf("List is empty.\n");
+        return;
+    }
     printf("Element at top of queue: %d\n", head->value);
 }
 
 void endOfQueue(struct node *tail){
+    if(tail == NULL){
+        printf("List is empty.\n");
+        return;
+    }
     printf("Element at end of queue: %d", tail->value);
 }
