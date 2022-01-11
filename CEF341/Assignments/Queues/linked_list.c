@@ -136,5 +136,5 @@ void endOfQueue(struct node *tail){
         printf("List is empty.\n");
         return;
     }
-    printf("Element at end of queue: %d", tail->value);
+    printf("Element at end of queue: %d\n", tail->value);
 }
