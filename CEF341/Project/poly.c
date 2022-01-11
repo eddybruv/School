@@ -65,6 +65,11 @@ void create_poly(struct Poly_Node **P){
 }
 
 void display_poly(struct Poly_Node *P){
+  if(P == NULL){
+    printf("No polynomial to be displayed.\n");
+    return;
+  }
+  
   while(P != NULL){
     if(P->index > 1){
       printf("(%d)x^%d + ", P->coefficient, P->index);
