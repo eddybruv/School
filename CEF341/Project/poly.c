@@ -10,6 +10,7 @@ struct Poly_Node {
 
 void create_poly(struct Poly_Node **);
 void display_poly(struct Poly_Node *);
+double eval_Poly(struct Poly_Node *, double);
 
 int main(void){
   struct Poly_Node *poly1, *tracker;
@@ -32,6 +33,8 @@ int main(void){
     scanf(" %c", &x);
   }
 
+  double ans = eval_Poly (poly1, 8.0);
+  printf("P(8) = %.2lf \n", ans);
   display_poly(poly1);
   return 0;
 }
@@ -89,4 +92,16 @@ void display_poly(struct Poly_Node *P){
   }
 
   printf(" = 0\n");
+}
+
+double eval_Poly(struct Poly_Node *P, double x){
+
+  double sum = 0;
+  while (P != NULL){
+    sum += (double) P->coefficient * (pow(x, (double)P->index));
+    P = P->next;
+  }
+
+
+  return sum;
 }
