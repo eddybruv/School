@@ -22,8 +22,9 @@ stack *pop(stack *S)
 {
     if (S == NULL)
         printf("Nothing to pop\n");
-    
-    else {
+
+    else
+    {
         stack *temp;
         temp = S;
         S = S->next;
@@ -42,14 +43,16 @@ void top(stack *S)
 
 void reverse_print(stack *S)
 {
-    if(S == NULL)
+    if (S == NULL)
         return;
     reverse_print(S->next);
     printf("%d ", S->data);
 }
 
-void display(stack *head){
-    while(head != NULL){
+void display(stack *head)
+{
+    while (head != NULL)
+    {
         printf("%d -> ", head->data);
         head = head->next;
     }
@@ -57,29 +60,39 @@ void display(stack *head){
     printf("NULL\n");
 }
 
-void swap(stack *a, stack *b){
+void swap(stack *a, stack *b)
+{
     int temp;
     temp = a->data;
     a->data = b->data;
     b->data = temp;
 }
 
-stack *bubbleSort(stack *head){
+stack *bubbleSort(stack *head)
+{
     stack *ptr, *ptr2;
-    ptr = head;
-    ptr2 = head;
+    ptr2 = NULL;
 
-    while(ptr2 != NULL){
-        ptr = ptr2;
-        
-        while(ptr != NULL){
-            if(ptr->data < ptr2->data)
-                swap(ptr, ptr2);
+    int swapped;
+
+    do
+    {
+        swapped = 0;
+        ptr = head;
+
+        while (ptr->next != ptr2)
+        {
+            if (ptr->data > ptr->next->data)
+            {
+                swap(ptr, ptr->next);
+                swapped = 1;
+            }
             ptr = ptr->next;
+            
         }
-
-        ptr2 = ptr2->next;
-    }
+        ptr2 = ptr;
+    } while ((swapped));
+    
 
     return head;
 }
@@ -89,7 +102,8 @@ int main(void)
     stack *head;
     head = NULL;
 
-    for (int i = 0; i < 10; i++){
+    for (int i = 0; i < 10; i++)
+    {
         int x;
         printf("Enter a number: ");
         scanf("%d", &x);
@@ -104,7 +118,7 @@ int main(void)
     // head = pop(head);
     // head = pop(head);
     // top(head);
-    //reverse_print(head);
+    // reverse_print(head);
     display(head);
     head = bubbleSort(head);
     display(head);
