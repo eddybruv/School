@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+// 1: Linked list
 typedef struct info
 {
     int code;
@@ -10,6 +11,7 @@ typedef struct info
     struct info *next;
 } Info;
 
+// 2 :
 Info *insert_object(Info *head)
 {
     Info *new_object;
@@ -28,6 +30,7 @@ Info *insert_object(Info *head)
     return head;
 }
 
+// 3:
 void delete_object(Info *head){
     Info *del, *prev;
     prev = NULL;
@@ -46,6 +49,7 @@ void delete_object(Info *head){
     free(del);
 }
 
+//4:
 bool search(Info *head){
     int x;
     printf("Enter code to search: ");
@@ -72,7 +76,7 @@ void display(Info *head){
 }
 
 Info *merge(Info *head_a, Info *head_b){
-    
+
 }
 
 int main(void){
