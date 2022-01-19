@@ -91,7 +91,7 @@ stack *bubbleSort(stack *head)
             
         }
         ptr2 = ptr;
-    } while ((swapped));
+    } while (swapped);
     
 
     return head;
