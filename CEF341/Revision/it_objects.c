@@ -31,7 +31,8 @@ Info *insert_object(Info *head)
 }
 
 // 3:
-void delete_object(Info *head){
+void delete_object(Info *head)
+{
     Info *del, *prev;
     prev = NULL;
     int x;
@@ -39,7 +40,8 @@ void delete_object(Info *head){
     printf("Enter code of element to be deleted: ");
     scanf("%d", &x);
 
-    while(head->code != x && head != NULL){
+    while (head->code != x && head != NULL)
+    {
         prev = head;
         head = head->next;
     }
@@ -49,14 +51,17 @@ void delete_object(Info *head){
     free(del);
 }
 
-//4:
-bool search(Info *head){
+// 4:
+bool search(Info *head)
+{
     int x;
     printf("Enter code to search: ");
     scanf("%d", &x);
 
-    while (head != NULL){
-        if(head->code == x){
+    while (head != NULL)
+    {
+        if (head->code == x)
+        {
             printf("Found!\n");
             return true;
         }
@@ -67,23 +72,39 @@ bool search(Info *head){
     return false;
 }
 
-void display(Info *head){
+void display(Info *head)
+{
     printf("Code    Type  Description\n");
-    while(head != NULL){
+    while (head != NULL)
+    {
         printf(" %d       %d    %s\n", head->code, head->type, head->desc);
         head = head->next;
     }
 }
 
-Info *merge(Info *head_a, Info *head_b){
+// 5:
+Info *merge(Info *head_a, Info *head_b)
+{
+    Info *tracker;
+    tracker = head_a;
 
+    while (tracker->next != NULL)
+    {
+        tracker = tracker->next;
+    }
+
+    tracker->next = head_b;
+
+    return head_a;
 }
 
-int main(void){
+int main(void)
+{
     Info *head;
     head = NULL;
 
-    for(int i = 0; i < 6;i++){
+    for (int i = 0; i < 6; i++)
+    {
         head = insert_object(head);
     }
 
