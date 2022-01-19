@@ -24,7 +24,7 @@ stack *pop(stack *S)
         printf("Nothing to pop\n");
 
     else
-    {
+    { 
         stack *temp;
         temp = S;
         S = S->next;
