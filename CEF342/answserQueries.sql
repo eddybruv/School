@@ -1,3 +1,47 @@
+-- Question 1 --
+SELECT
+    tblOrders.CustomerID,
+    tblOrders.OrderID,
+    tblOrders.OrderDate
+FROM
+    tblOrders
+WHERE
+    tblOrders.OrderDate BETWEEN '2014-01-01'
+    AND '2014-12-31';
+
+
+-- Question 2 --
+ALTER TABLE tblCustomers ADD Active BOOLEAN DEFAULT TRUE;
+
+-- Question 3 --
+SELECT
+    tblCustomers.CompanyName,
+    tblOrders.OrderDate,
+    tblOrders.Freight + (
+        tblOrderDetails.UnitPrice * tblOrderDetails.Quantity
+    ) AS Total_Amount
+FROM
+    (
+        tblCustomers
+        INNER JOIN tblOrders ON tblCustomers.CustomerID = tblOrders.CustomerID
+    )
+    INNER JOIN tblOrderDetails ON tblOrders.OrderID = tblOrderDetails.OrderID
+WHERE
+    tblOrders.OrderDate < '2012-09-01 00:00:00';
+
+-- Question 4 --
+SELECT
+    tblOrders.OrderID,
+    tblOrders.ShipName,
+    tblOrders.ShipAddress,
+    tblOrders.CustomerID
+FROM
+    tblOrders
+    INNER JOIN tblShippers ON tblOrders.Shipvia = tblShippers.ShipperID
+WHERE
+    tblShippers.CompanyName = 'Federal Shipping';
+
+
 -- Question 5 --
 
 SELECT
@@ -12,6 +56,17 @@ FROM
 WHERE
     tblOrders.OrderDate NOT BETWEEN '2011-01-01'
     AND '2001-12-31' -- Question 6 --
+SELECT
+    ProductID,
+    ProductName,
+    UnitPrice,
+    UnitsInStock
+FROM
+    tblProducts
+WHERE
+    UnitsOnOrder = 0;
+
+-- Question 6 --
 SELECT
     ProductID,
     ProductName,
