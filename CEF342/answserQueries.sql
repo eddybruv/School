@@ -246,15 +246,7 @@ VALUES
         "POBox 000",
         0.9
     );
-
-SELECT * 
-from Employee 
-INNER JOIN tblOrders 
-ON tblOrders.EmployeeID = Employee.EmployeeID;
-
-SELECT tblProducts.ProductName, tblProducts.QuantityPerUnit FROM tblProducts
-WHERE tblProducts.QuantityPerUnit LIKE '%boxes%';
-
+    
 ALTER TABLE tblOrders
 ADD COLUMN TotalSales INT;
 
